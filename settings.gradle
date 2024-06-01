@@ -1,0 +1,25 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        mavenCentral()
+        maven { url 'https://repo.spring.io/plugin-release' }
+    }
+    resolutionStrategy {
+        eachPlugin {
+            if (requested.id.id == "org.springframework.boot") {
+                useVersion springBootVersion as String
+            }
+            if (requested.id.id == "io.spring.dependency-management") {
+                useVersion springDependencyManagementVersion as String
+            }
+            if (requested.id.id == "com.ewerk.gradle.plugins.querydsl") {
+                useVersion ewerkVersion as String
+            }
+            if (requested.id.id == "org.asciidoctor.jvm.convert") {
+                useVersion jvmConvertVersion as String
+            }
+        }
+    }
+}
+
+rootProject.name = "file-extension-limitation"
